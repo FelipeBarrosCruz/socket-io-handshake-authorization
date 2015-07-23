@@ -12,13 +12,13 @@ io.on('connection', function(socket) {
     console.log('A new Socket Connected');
     console.log('SocketID [%s]', socket.id);
 
-    var AuthorizeOne = function(data) {
+    var authorize = function(data) {
         return (data.user == 'felipe' && data.pass == 'abc123') ? true : false;
     };
 
     socketAuth.auth({
         socket: socket,
-        authorize: auth,
+        authorize: authorize,
         method: 'auth'
     }).listen(AuthScope);
 
